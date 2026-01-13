@@ -1,0 +1,47 @@
+{
+  "name": "emoji-hub-api-client",
+  "description": "A lightweight JavaScript and TypeScript client for the EmojiHub API, allowing easy access to emojis by category, group, search, and random selection.",
+  "type": "module",
+  "version": "0.0.9",
+    "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+     "emoji",
+    "emojis",
+    "emoji-api",
+    "emojihub",
+    "unicode",
+    "symbols",
+    "fun-api",
+    "public-api",
+    "api-client",
+    "http-client",
+    "javascript",
+    "typescript"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NPM-Workbench/emoji-hub-api-client"
+  },
+  "homepage": "https://github.com/NPM-Workbench/emoji-hub-api-client",
+  "bugs": {
+    "url": "https://github.com/NPM-Workbench/emoji-hub-api-client/issues"
+  }
+}
