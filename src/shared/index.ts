@@ -1,0 +1,2 @@
+/* api root url */
+export const API_BASE_URL = 'https://emojihub.yurace.pro';
