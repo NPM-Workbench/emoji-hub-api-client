@@ -196,7 +196,7 @@ import { getRandomEmojiByCategory } from "emoji-hub-api-client";
 
 async function run() {
   const response = await getRandomEmojiByCategory({
-    category: "smileys and people"
+    category: "smileys-and-people" /* join with hyphen if there are more than 2 words */
   });
 
   if (response.code === "api-ok" && response.payload) {
@@ -279,7 +279,7 @@ import { searchEmojisByName } from "emoji-hub-api-client";
 
 async function run() {
   const response = await searchEmojisByName({
-    query: "smile"
+    query: "smile" /* join with hyphen if there are more than 2 words*/
   });
 
   if (response.code === "api-ok" && response.payload) {
