@@ -3,13 +3,17 @@ import { API_BASE_URL } from "../shared/index.js";
 import { TEmoji, TAPIResponse } from "../types/index.js";
 
 /* types */ 
-type TRandomEmojiResponse = TAPIResponse & { payload: null | TEmoji };
+type TRandomEmojiByCategory = TAPIResponse & { payload: null | TEmoji };  
+type TInput = { category: string };
 
-/* module */ 
-async function getRandomEmoji(): Promise<TRandomEmojiResponse> {
+/* module */
+async function getRandomEmojiByCategory(props: TInput): Promise<TRandomEmojiByCategory> {
     try {
+        /* props - destruct */ 
+        const { category } = props;
+        
         /* setup and fetch */
-        const API_URL = `${API_BASE_URL}/api/random`;
+        const API_URL = `${API_BASE_URL}/api/random/category/${category}`;
         const response = await fetch(API_URL);
 
         /* check and return */
@@ -27,12 +31,12 @@ async function getRandomEmoji(): Promise<TRandomEmojiResponse> {
         console.error(error);
         return {
             code: "api-fail",
-            message: "Get Random Emoji: Encountered Error!",
+            message: "Get Random Emoji By Category: Encountered Error!",
             payload: null
         }
     }
 }
 
 /* exports */ 
-export type { TRandomEmojiResponse };
-export { getRandomEmoji };
+export type { TRandomEmojiByCategory };
+export { getRandomEmojiByCategory };

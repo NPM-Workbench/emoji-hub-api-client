@@ -1,40 +1,38 @@
 /* app imports */
 import { API_BASE_URL } from "../shared/index.js";
-import { TAPIResponse } from "../types/index.js";
+import { TEmoji, TAPIResponse } from "../types/index.js";
 
 /* types */ 
-type TEmojiCategories = TAPIResponse & {
-    payload: { categories: string[] } | null;
-};
+type TRandomEmoji = TAPIResponse & { payload: null | TEmoji };
 
 /* module */ 
-async function getAllEmojiCategories(): Promise<TEmojiCategories> {
+async function getRandomEmoji(): Promise<TRandomEmoji> {
     try {
         /* setup and fetch */
-        const API_URL = `${API_BASE_URL}/api/categories`;
+        const API_URL = `${API_BASE_URL}/api/random`;
         const response = await fetch(API_URL);
 
         /* check and return */
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         } else {
-            const categories = await response.json();
+            const emoji = await response.json();
             return {
                 code: "api-ok",
                 message: "No errors encountered",
-                payload: { categories }
+                payload: emoji
             }
         }
     } catch (error) {
         console.error(error);
         return {
             code: "api-fail",
-            message: "Get All Emoji Categories: Encountered Error!",
+            message: "Get Random Emoji: Encountered Error!",
             payload: null
         }
     }
 }
 
-/* exports */
-export type { TEmojiCategories };
-export { getAllEmojiCategories };
+/* exports */ 
+export type { TRandomEmoji };
+export { getRandomEmoji };

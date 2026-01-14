@@ -3,10 +3,10 @@ import { API_BASE_URL } from "../shared/index.js";
 import { TEmoji, TAPIResponse } from "../types/index.js";
 
 /* types */ 
-type TAllEmojisResponse = TAPIResponse & { payload: null | TEmoji[] };
+type TAllEmojis = TAPIResponse & { payload: null | TEmoji[] };
 
 /* module */ 
-async function getAllEmojis(): Promise<TAllEmojisResponse> {
+async function getAllEmojis(): Promise<TAllEmojis> {
     try {
         /* setup and fetch */
         const API_URL = `${API_BASE_URL}/api/all`;
@@ -35,4 +35,4 @@ async function getAllEmojis(): Promise<TAllEmojisResponse> {
 
 /* export */ 
 export { getAllEmojis };
-export type { TAllEmojisResponse };
+export type { TAllEmojis };
