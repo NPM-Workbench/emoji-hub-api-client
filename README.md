@@ -151,3 +151,246 @@ run();
 }
 */
 ```
+4. Get A Random Emoji
+```javascript
+import { getRandomEmoji } from "emoji-hub-api-client";
+
+async function run() {
+  const response = await getRandomEmoji();
+  if (response.code === "api-ok" && response.payload) {
+    console.log(response.payload);
+  } else {
+    console.error("Failed to fetch random emoji:", response.message);
+  }
+}
+run();
+
+// 200:OK
+/*
+{
+  "code": "api-ok",
+  "message": "No error encountered",
+  "payload": {
+    "name": "rocket",
+    "category": "travel and places",
+    "group": "transport air",
+    "htmlCode": ["&#128640;"],
+    "unicode": ["U+1F680"]
+  }
+}
+*/
+
+// Error
+/*
+{
+    code: "api-fail",
+    message: "Get Random Emoji: Encountered Error!",
+    payload: null
+}
+*/
+```
+5. Get a Random Emoji by Category
+```javascript
+/* Note: To get the type of categories, check the getAllEmojiCategories() function response */
+import { getRandomEmojiByCategory } from "emoji-hub-api-client";
+
+async function run() {
+  const response = await getRandomEmojiByCategory({
+    category: "smileys and people"
+  });
+
+  if (response.code === "api-ok" && response.payload) {
+    console.log(response.payload);
+  } else {
+    console.error("Failed to fetch random emoji by category:", response.message);
+  }
+}
+run();
+
+// 200:OK
+/*
+{
+  "code": "api-ok",
+  "message": "No error encountered",
+  "payload": {
+    "name": "grinning face",
+    "category": "smileys and people",
+    "group": "face positive",
+    "htmlCode": ["&#128512;"],
+    "unicode": ["U+1F600"]
+  }
+}
+*/
+
+// Error
+/*
+{
+    code: "api-fail",
+    message: "Get Random Emoji By Category: Encountered Error!",
+    payload: null
+}
+*/
+```
+6. Get Random Emoji By Group
+```javascript
+/* Note: to get the names of the groups, check the getAllEmojiGroups() function response */
+import { getRandomEmojiByGroup } from "emoji-hub-api-client";
+
+async function run() {
+  const response = await getRandomEmojiByGroup({
+    group: "face positive"
+  });
+
+  if (response.code === "api-ok" && response.payload) {
+    console.log(response.payload);
+  } else {
+    console.error("Failed to fetch random emoji by group:", response.message);
+  }
+}
+run();
+
+// 200:OK
+/*
+{
+  "code": "api-ok",
+  "message": "No error encountered",
+  "payload": {
+    "name": "smiling face with sunglasses",
+    "category": "smileys and people",
+    "group": "face positive",
+    "htmlCode": ["&#128526;"],
+    "unicode": ["U+1F60E"]
+  }
+}
+*/
+
+// Error
+/*
+{
+    code: "api-fail",
+    message: "Get Random Emoji By Group: Encountered Error!",
+    payload: null
+}
+*/
+```
+7. Search An Emoji By Name/Query
+```javascript
+import { searchEmojisByName } from "emoji-hub-api-client";
+
+async function run() {
+  const response = await searchEmojisByName({
+    query: "smile"
+  });
+
+  if (response.code === "api-ok" && response.payload) {
+    console.log(`Total results: ${response.payload.totalResults}`);
+    console.log(response.payload.results);
+  } else {
+    console.error("Failed to search emojis:", response.message);
+  }
+}
+run();
+
+// 200:OK
+/*
+{
+  "code": "api-ok",
+  "message": "No error encountered",
+  "payload": {
+    "totalResults": 2,
+    "results": [
+      {
+        "name": "smiling face",
+        "category": "smileys and people",
+        "group": "face positive",
+        "htmlCode": ["&#128522;"],
+        "unicode": ["U+1F642"]
+      },
+      {
+        "name": "smiling face with sunglasses",
+        "category": "smileys and people",
+        "group": "face positive",
+        "htmlCode": ["&#128526;"],
+        "unicode": ["U+1F60E"]
+      }
+    ]
+  }
+}
+*/
+
+// Error
+/*
+{
+    code: "api-fail",
+    message: "Search Emoji(s) By Name: Encountered Error!",
+    payload: null
+}
+*/
+```
+8. Get Similar Emoji(s) By Name/Query
+```javascript
+import { searchSimilarEmojisByName } from "emoji-hub-api-client";
+
+async function run() {
+  const response = await searchSimilarEmojisByName({
+    query: "heart"
+  });
+  if (response.code === "api-ok" && response.payload) {
+    console.log(`Total similar emojis found: ${response.payload.totalResults}`);
+    console.log(response.payload.results);
+  } else {
+    console.error("Failed to search similar emojis:", response.message);
+  }
+}
+run();
+
+// 200:OK
+/*
+{
+  "code": "api-ok",
+  "message": "No error encountered",
+  "payload": {
+    "totalResults": 3,
+    "results": [
+      {
+        "name": "red heart",
+        "category": "smileys and people",
+        "group": "emotion",
+        "htmlCode": ["&#10084;"],
+        "unicode": ["U+2764"]
+      },
+      {
+        "name": "orange heart",
+        "category": "smileys and people",
+        "group": "emotion",
+        "htmlCode": ["&#128999;"],
+        "unicode": ["U+1F9E7"]
+      },
+      {
+        "name": "yellow heart",
+        "category": "smileys and people",
+        "group": "emotion",
+        "htmlCode": ["&#128155;"],
+        "unicode": ["U+1F49B"]
+      }
+    ]
+  }
+}
+*/
+
+// Error
+/*
+{
+    code: "api-fail",
+    message: "Search Similar Emoji(s) By Name: Encountered Error!",
+    payload: null
+}
+*/
+```
+
+### 📘 Contributing
+Contributions, suggestions, and improvements are welcome.<br/>
+Feel free to open issues or pull requests.
+
+### ❤️ Support
+Like this project? Support it with a github star, it would mean a lot to me! Cheers and Happy Coding.
