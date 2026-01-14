@@ -238,7 +238,7 @@ import { getRandomEmojiByGroup } from "emoji-hub-api-client";
 
 async function run() {
   const response = await getRandomEmojiByGroup({
-    group: "face positive"
+    group: "face-positive" /* join with hyphen if there are more than 2 words*/
   });
 
   if (response.code === "api-ok" && response.payload) {
@@ -279,7 +279,7 @@ import { searchEmojisByName } from "emoji-hub-api-client";
 
 async function run() {
   const response = await searchEmojisByName({
-    query: "smile" /* join with hyphen if there are more than 2 words*/
+    query: "smile"
   });
 
   if (response.code === "api-ok" && response.payload) {
