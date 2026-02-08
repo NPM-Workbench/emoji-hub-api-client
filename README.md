@@ -1,14 +1,19 @@
 ![emoji-hub-api-banner-2](https://github.com/user-attachments/assets/3c273cde-0d8a-4b31-a9c5-1c6c72a0d1e7)
+
 # Emoji Hub API Client
+
 A lightweight JavaScript/TypeScript client for the EmojiHub API (https://github.com/cheatsnake/emojihub), providing easy access to emojis by category, group, search, and random selection. This package is ESM-only and works in modern browsers and Node.js 18+ environments that support the Fetch API.
 
 ### 📦 Installation
+
 ```console
 npm install emoji-hub-api-client
 ```
+
 Note: If you are using Node.js, ensure your project supports ES modules.
 
 ### 🎲 Features
+
 1. Lightweight & fast — minimal abstraction over the EmojiHub API
 2. Zero dependencies — uses the native fetch API
 3. JavaScript & TypeScript support — includes type definitions out of the box
@@ -18,27 +23,31 @@ Note: If you are using Node.js, ensure your project supports ES modules.
 7. Retrieve all available categories and groups
 
 ### 📚 API Functions
+
 The emoji-hub-api-client package exposes the following functions:
-1. ```getAllEmojiCategories()```: Retrieve a list of all available emoji categories.
-2. ```getAllEmojiGroups()```: Retrieve a list of all available emoji groups.
-3. ```getAllEmojis()```: Fetch all emojis available in the EmojiHub API.
-4. ```getRandomEmoji()```: Fetch a single random emoji.
-5. ```getRandomEmojiByCategory()```: Fetch a random emoji from a specific category.
-6. ```getRandomEmojiByGroup()```: Fetch a random emoji from a specific group.
-7. ```searchEmojisByName()```: Search emojis by name.
-8. ```searchSimilarEmojisByName()```: Retrieve emojis with names similar to the provided emoji name.
+
+1. `getAllEmojiCategories()`: Retrieve a list of all available emoji categories.
+2. `getAllEmojiGroups()`: Retrieve a list of all available emoji groups.
+3. `getAllEmojis()`: Fetch all emojis available in the EmojiHub API.
+4. `getRandomEmoji()`: Fetch a single random emoji.
+5. `getRandomEmojiByCategory()`: Fetch a random emoji from a specific category.
+6. `getRandomEmojiByGroup()`: Fetch a random emoji from a specific group.
+7. `searchEmojisByName()`: Search emojis by name.
+8. `searchSimilarEmojisByName()`: Retrieve emojis with names similar to the provided emoji name.
 
 ### 🔤 Example Usage
+
 1. Get All Emoji Categories
+
 ```javascript
-import { getAllEmojiCategories } from "emoji-hub-api-client";
+import { getAllEmojiCategories } from 'emoji-hub-api-client';
 
 async function run() {
   const response = await getAllEmojiCategories();
-  if (response.code === "api-ok" && response.payload) {
+  if (response.code === 'api-ok' && response.payload) {
     console.log(response.payload.categories);
   } else {
-    console.error("Failed to fetch categories:", response.message);
+    console.error('Failed to fetch categories:', response.message);
   }
 }
 run();
@@ -70,16 +79,18 @@ run();
 }
 */
 ```
+
 2. Get All Emoji Groups
+
 ```javascript
-import { getAllEmojiGroups } from "emoji-hub-api-client";
+import { getAllEmojiGroups } from 'emoji-hub-api-client';
 
 async function run() {
   const response = await getAllEmojiGroups();
-  if (response.code === "api-ok" && response.payload) {
+  if (response.code === 'api-ok' && response.payload) {
     console.log(response.payload.groups);
   } else {
-    console.error("Failed to fetch groups:", response.message);
+    console.error('Failed to fetch groups:', response.message);
   }
 }
 run();
@@ -107,17 +118,19 @@ run();
 // Error
 /* { code: "api-fail", message: "Get All Emoji Groups: Encountered Error", payload: null }; */
 ```
+
 3. Get All Emojis
+
 ```javascript
-import { getAllEmojis } from "emoji-hub-api-client";
+import { getAllEmojis } from 'emoji-hub-api-client';
 
 async function run() {
   const response = await getAllEmojis();
-  if (response.code === "api-ok" && response.payload) {
+  if (response.code === 'api-ok' && response.payload) {
     // Log the first emoji as a sample
-    console.log("Sample emoji:", response.payload[0]);
+    console.log('Sample emoji:', response.payload[0]);
   } else {
-    console.error("Failed to fetch emojis:", response.message);
+    console.error('Failed to fetch emojis:', response.message);
   }
 }
 run();
@@ -151,16 +164,18 @@ run();
 }
 */
 ```
+
 4. Get A Random Emoji
+
 ```javascript
-import { getRandomEmoji } from "emoji-hub-api-client";
+import { getRandomEmoji } from 'emoji-hub-api-client';
 
 async function run() {
   const response = await getRandomEmoji();
-  if (response.code === "api-ok" && response.payload) {
+  if (response.code === 'api-ok' && response.payload) {
     console.log(response.payload);
   } else {
-    console.error("Failed to fetch random emoji:", response.message);
+    console.error('Failed to fetch random emoji:', response.message);
   }
 }
 run();
@@ -189,20 +204,26 @@ run();
 }
 */
 ```
+
 5. Get a Random Emoji by Category
+
 ```javascript
 /* Note: To get the type of categories, check the getAllEmojiCategories() function response */
-import { getRandomEmojiByCategory } from "emoji-hub-api-client";
+import { getRandomEmojiByCategory } from 'emoji-hub-api-client';
 
 async function run() {
   const response = await getRandomEmojiByCategory({
-    category: "smileys-and-people" /* join with hyphen if there are more than 2 words */
+    category:
+      'smileys-and-people' /* join with hyphen if there are more than 2 words */,
   });
 
-  if (response.code === "api-ok" && response.payload) {
+  if (response.code === 'api-ok' && response.payload) {
     console.log(response.payload);
   } else {
-    console.error("Failed to fetch random emoji by category:", response.message);
+    console.error(
+      'Failed to fetch random emoji by category:',
+      response.message,
+    );
   }
 }
 run();
@@ -231,20 +252,22 @@ run();
 }
 */
 ```
+
 6. Get Random Emoji By Group
+
 ```javascript
 /* Note: to get the names of the groups, check the getAllEmojiGroups() function response */
-import { getRandomEmojiByGroup } from "emoji-hub-api-client";
+import { getRandomEmojiByGroup } from 'emoji-hub-api-client';
 
 async function run() {
   const response = await getRandomEmojiByGroup({
-    group: "face-positive" /* join with hyphen if there are more than 2 words*/
+    group: 'face-positive' /* join with hyphen if there are more than 2 words*/,
   });
 
-  if (response.code === "api-ok" && response.payload) {
+  if (response.code === 'api-ok' && response.payload) {
     console.log(response.payload);
   } else {
-    console.error("Failed to fetch random emoji by group:", response.message);
+    console.error('Failed to fetch random emoji by group:', response.message);
   }
 }
 run();
@@ -273,20 +296,22 @@ run();
 }
 */
 ```
+
 7. Search An Emoji By Name/Query
+
 ```javascript
-import { searchEmojisByName } from "emoji-hub-api-client";
+import { searchEmojisByName } from 'emoji-hub-api-client';
 
 async function run() {
   const response = await searchEmojisByName({
-    query: "smile"
+    query: 'smile',
   });
 
-  if (response.code === "api-ok" && response.payload) {
+  if (response.code === 'api-ok' && response.payload) {
     console.log(`Total results: ${response.payload.totalResults}`);
     console.log(response.payload.results);
   } else {
-    console.error("Failed to search emojis:", response.message);
+    console.error('Failed to search emojis:', response.message);
   }
 }
 run();
@@ -327,19 +352,21 @@ run();
 }
 */
 ```
+
 8. Get Similar Emoji(s) By Name/Query
+
 ```javascript
-import { searchSimilarEmojisByName } from "emoji-hub-api-client";
+import { searchSimilarEmojisByName } from 'emoji-hub-api-client';
 
 async function run() {
   const response = await searchSimilarEmojisByName({
-    query: "heart"
+    query: 'heart',
   });
-  if (response.code === "api-ok" && response.payload) {
+  if (response.code === 'api-ok' && response.payload) {
     console.log(`Total similar emojis found: ${response.payload.totalResults}`);
     console.log(response.payload.results);
   } else {
-    console.error("Failed to search similar emojis:", response.message);
+    console.error('Failed to search similar emojis:', response.message);
   }
 }
 run();
@@ -388,9 +415,92 @@ run();
 */
 ```
 
+### 📗 Test Coverage
+
+```
+PASS src/get-all-emoji-categories/test/index.test.ts
+  Get All Emoji Categories
+    ✓ returns api-fail when fetch response is not ok
+    ✓ returns payload when response ok
+    ✓ targets the emoji categories endpoint
+
+PASS src/get-random-emoji/test/get-random.test.ts
+  Get A Random Emoji
+    ✓ returns api-fail when fetch response is not ok
+    ✓ returns payload when response ok
+    ✓ targets the random emoji endpoint
+
+PASS src/get-random-emoji/test/get-random-by-group.test.ts
+  Get Random Emoji By Group
+    ✓ returns api-fail when fetch response is not ok
+    ✓ returns payload when response ok
+    ✓ targets the random emoji by group endpoint
+
+PASS src/search-emojis/test/search-similar-emojis-by-name.test.ts
+  Search Similar Emojis By Name
+    ✓ returns api-fail when query is empty
+    ✓ returns api-fail when fetch response is not ok
+    ✓ returns payload when response ok
+    ✓ targets the emoji similar search endpoint with encoded query
+
+PASS src/search-emojis/test/search-emojis-by-name.test.ts
+  Search Emojis By Name
+    ✓ returns api-fail when query is empty
+    ✓ returns api-fail when fetch response is not ok
+    ✓ returns payload when response ok
+    ✓ targets the emoji search endpoint with encoded query
+
+PASS src/get-all-emojis/test/index.test.ts
+  Get All Emojis
+    ✓ returns api-fail when fetch response is not ok
+    ✓ returns payload when response ok
+    ✓ targets the emoji all endpoint
+
+PASS src/get-all-emoji-groups/test/index.test.ts
+  Get All Emoji Groups
+    ✓ returns api-fail when fetch response is not ok
+    ✓ returns payload when response ok
+    ✓ targets the emoji groups endpoint
+
+PASS src/get-random-emoji/test/get-random-by-category.test.ts
+  Get Random Emoji By Category
+    ✓ returns api-fail when fetch response is not ok
+    ✓ returns payload when response ok
+    ✓ targets the random emoji by category endpoint
+
+Test Suites: 8 passed, 8 total
+Tests:       26 passed, 26 total
+Snapshots:   0 total
+```
+
+```
+-----------------------------------|---------|----------|---------|---------|-------------------
+File                               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-----------------------------------|---------|----------|---------|---------|-------------------
+All files                          |     100 |      100 |     100 |     100 |
+ get-all-emoji-categories          |     100 |      100 |     100 |     100 |
+  index.ts                         |     100 |      100 |     100 |     100 |
+ get-all-emoji-groups              |     100 |      100 |     100 |     100 |
+  index.ts                         |     100 |      100 |     100 |     100 |
+ get-all-emojis                    |     100 |      100 |     100 |     100 |
+  index.ts                         |     100 |      100 |     100 |     100 |
+ get-random-emoji                  |     100 |      100 |     100 |     100 |
+  get-random-by-category.ts        |     100 |      100 |     100 |     100 |
+  get-random-by-group.ts           |     100 |      100 |     100 |     100 |
+  get-random.ts                    |     100 |      100 |     100 |     100 |
+ search-emojis                     |     100 |      100 |     100 |     100 |
+  search-emojis-by-name.ts         |     100 |      100 |     100 |     100 |
+  search-similar-emojis-by-name.ts |     100 |      100 |     100 |     100 |
+ shared                            |     100 |      100 |     100 |     100 |
+  index.ts                         |     100 |      100 |     100 |     100 |
+-----------------------------------|---------|----------|---------|---------|-------------------
+```
+
 ### 📘 Contributing
+
 Contributions, suggestions, and improvements are welcome.<br/>
 Feel free to open issues or pull requests.
 
 ### ❤️ Support
+
 Like this project? Support it with a github star, it would mean a lot to me! Cheers and Happy Coding.
