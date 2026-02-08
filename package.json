@@ -2,7 +2,7 @@
   "name": "emoji-hub-api-client",
   "description": "A lightweight JavaScript and TypeScript client for the EmojiHub API, allowing easy access to emojis by category, group, search, and random selection.",
   "type": "module",
-  "version": "1.1.0",
+  "version": "1.1.1",
     "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
