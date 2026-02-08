@@ -1,5 +1,8 @@
 ![emoji-hub-api-banner-2](https://github.com/user-attachments/assets/3c273cde-0d8a-4b31-a9c5-1c6c72a0d1e7)
-
+![npm](https://img.shields.io/npm/v/emoji-hub-api-client)
+![downloads](https://img.shields.io/npm/dw/emoji-hub-api-client)
+![license](https://img.shields.io/npm/l/emoji-hub-api-client)
+>>>>>>> 422089c19adb2505362854612a202481ef61c06f
 # Emoji Hub API Client
 
 A lightweight JavaScript/TypeScript client for the EmojiHub API (https://github.com/cheatsnake/emojihub), providing easy access to emojis by category, group, search, and random selection. This package is ESM-only and works in modern browsers and Node.js 18+ environments that support the Fetch API.
